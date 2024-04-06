@@ -5,7 +5,7 @@ namespace FormulariosConRazor_HtmlHelper_1.Models
     public class usuarios
     {
         [Key]
-        public int id_usuario { get; set; }
+        public int id_usuarios { get; set; }
         public string nombre_usuario { get; set; }
         public string clave { get; set; }
         public string genero { get; set; }

@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<FormulariosConRazor_HtmlHelper_1.Models.usuarios>
 
 @{
-    ViewBag.title = "Index";
+
 }
 
 <div class="container">
@@ -57,13 +57,13 @@
                 @Html.Label("Pasatiempos")
             </div>
             <div style="width: 24%;">
-                @Html.CheckBox("Bailar")
+                @Html.CheckBox("pasatiempos")
                 Bailar
-                @Html.CheckBox("Correr")
+                @Html.CheckBox("pasatiempos")
                 Correr
-                @Html.CheckBox("Escalar")
+                @Html.CheckBox("pasatiempos")
                 Escalar
-                @Html.CheckBox("Peliculas")
+                @Html.CheckBox("pasatiempos")
                 Peliculas
             </div>
         </div>
@@ -101,5 +101,35 @@
     }
 
     <hr>
+
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre de Usuario</th>
+                    <th>Clave</th>
+                    <th>Genero</th>
+                    <th>Direccion</th>
+                    <th>Pasatiempos</th>
+                    <th>Curso</th>
+                    <th>Conocimientos</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var usuario in (IEnumerable<dynamic>)ViewData["listadoUsuarios"])
+                    {
+                        <tr>
+                            <td>@usuario.nombre_usuario</td>
+                            <td>@usuario.clave</td>
+                            <td>@usuario.genero</td>
+                            <td>@usuario.direccion</td>
+                            <td>@usuario.pasatiempos</td>
+                            <td>@usuario.curso</td>
+                            <td>@usuario.conocimientos</td>
+                        </tr>
+                    }
+            </tbody>
+        </table>
+    </div>
 
 </div>
