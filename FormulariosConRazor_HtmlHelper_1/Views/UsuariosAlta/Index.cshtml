@@ -1,0 +1,105 @@
+﻿@model IEnumerable<FormulariosConRazor_HtmlHelper_1.Models.usuarios>
+
+@{
+    ViewBag.title = "Index";
+}
+
+<div class="container">
+    <h2 class="">Helpers</h2>
+    <hr>
+
+    @* @Html.TextBox(nombre de cadena, valor de cadena, objeto htmlAttributes) *@
+    @* @Html.TextBox("txtUserName", "", new { @class = "form-control" }) *@
+    
+    @using (Html.BeginForm("Create", "UsuariosAlta", FormMethod.Post))
+    {
+        <div class="d-flex">
+            <div style="width: 17%;">
+                @Html.Label("Nombre Usuario")
+            </div>
+            <div style="width: 24%;">
+                @Html.TextBox("nombre_usuario", "", new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="d-flex">
+            <div style="width: 17%;">
+                @Html.Label("Password")
+            </div>
+            <div style="width: 24%;">
+                @Html.Password("clave", "", new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="d-flex">
+            <div style="width: 17%;">
+                @Html.Label("genero")
+            </div>
+            <div style="width: 24%;">
+                @Html.RadioButton("genero", "Masculino", true, new { id = "masculino" })
+                Masculino
+                @Html.RadioButton("genero", "Femenino", false, new { id = "femenino" })
+                Femenino
+            </div>
+        </div>
+
+        <div class="d-flex">
+            <div style="width: 17%;">
+                @Html.Label("Dirección")
+            </div>
+            <div style="width: 24%;">
+                @Html.TextArea("direccion", "", new { @class = "form-control", id = "idDireccion" })
+            </div>
+        </div>
+
+        <div class="d-flex">
+            <div style="width: 17%;">
+                @Html.Label("Pasatiempos")
+            </div>
+            <div style="width: 24%;">
+                @Html.CheckBox("Bailar")
+                Bailar
+                @Html.CheckBox("Correr")
+                Correr
+                @Html.CheckBox("Escalar")
+                Escalar
+                @Html.CheckBox("Peliculas")
+                Peliculas
+            </div>
+        </div>
+
+        <div class="d-flex">
+            <div style="width: 17%;">
+                @Html.Label("Cursos")
+            </div>
+            <div style="width: 24%;">
+                @{
+                    IEnumerable<string> strList = new List<string> { "DAW", "TW", "MAT3", "FIS1" };
+                }
+                @Html.DropDownList("curso", new SelectList(strList, strList.FirstOrDefault()))
+            </div>
+        </div>
+
+        <div class="d-flex">
+            <div style="width: 17%;">
+                @Html.Label("Conocimientos")
+            </div>
+            <div style="width: 24%;">
+                @Html.ListBox("conocimientos", new List<SelectListItem>{
+                    new SelectListItem {Text = "C #", Value = "1"},
+                    new SelectListItem {Text = "ASP.NET", Value = "2"},
+                    new SelectListItem {Text = "ASP.NET Core", Value = "3"},
+                    new SelectListItem {Text = "Azure", Value = "4"}
+                })
+            </div>
+        </div>
+
+        <hr>
+        <div class="d-flex justify-content-end" style="width: 41%;">
+            <input class="btn text-light" type="submit" value="Submit" style="width: 58%; background-color: #0FC844;">
+        </div>
+    }
+
+    <hr>
+
+</div>
